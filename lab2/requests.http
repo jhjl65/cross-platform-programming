@@ -1,0 +1,48 @@
+### 1. Створити трек (POST). _id нового треку зберігається автоматично
+POST http://localhost:3000/api/tracks
+Content-Type: application/json
+
+{
+  "title": "Ambient Rain",
+  "artist": "Wavely Sounds",
+  "category": "rain",
+  "durationSec": 3600,
+  "audioUrl": "https://example.com/audio/ambient-rain.mp3",
+  "isDownloaded": false
+}
+
+> {%
+    client.global.set("trackId", response.body._id);
+%}
+
+### 2. Отримати всі треки (GET)
+GET http://localhost:3000/api/tracks
+
+### 3. Отримати трек за id (GET) — id підставляється автоматично
+GET http://localhost:3000/api/tracks/{{trackId}}
+
+### 4. Оновити трек (PUT) — id підставляється автоматично
+PUT http://localhost:3000/api/tracks/{{trackId}}
+Content-Type: application/json
+
+{
+  "title": "Ambient Rain (Sleep Mix)",
+  "artist": "Wavely Sounds",
+  "category": "rain",
+  "durationSec": 7200,
+  "isDownloaded": true
+}
+
+### 5. Спроба створити трек без обов'язкових полів (очікується 400)
+POST http://localhost:3000/api/tracks
+Content-Type: application/json
+
+{
+  "title": "Без виконавця"
+}
+
+### 6. Видалити трек (DELETE) — id підставляється автоматично
+DELETE http://localhost:3000/api/tracks/{{trackId}}
+
+### 7. Спроба отримати вже видалений трек (очікується 404)
+GET http://localhost:3000/api/tracks/{{trackId}}
