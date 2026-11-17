@@ -1,0 +1,17 @@
+{
+  "name": "wavely-monorepo-desktop",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "test": "node --test"
+  },
+  "dependencies": {
+    "@wavely/core": "*"
+  },
+  "devDependencies": {
+    "electron": "^33.2.0"
+  }
+}

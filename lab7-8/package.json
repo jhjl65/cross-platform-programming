@@ -1,0 +1,12 @@
+{
+  "name": "wavely-monorepo",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Wavely — монорепозиторій: спільне ядро і клієнти (веб, десктоп, мобільний)",
+  "workspaces": ["packages/*"],
+  "scripts": {
+    "test": "npm test --workspaces --if-present",
+    "start:web": "npm run start -w wavely-web",
+    "start:desktop": "npm run start -w wavely-monorepo-desktop"
+  }
+}

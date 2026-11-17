@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wavely</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <h1>🌙 Wavely</h1>
+      <p class="stats">Усього треків: <span id="totalCount">0</span> · Завантажено офлайн: <span id="downloadedCount">0</span></p>
+    </header>
+    <section class="card">
+      <h2 class="card-title">Додати трек</h2>
+      <input type="text" id="titleInput" class="text-input" placeholder="Назва треку" aria-label="Назва треку" />
+      <input type="text" id="artistInput" class="text-input" placeholder="Виконавець" aria-label="Виконавець" />
+      <p class="label">Категорія</p>
+      <div class="chips" role="group" aria-label="Категорія">
+        <button type="button" class="chip active" data-category="ambient" aria-pressed="true">Ambient</button>
+        <button type="button" class="chip" data-category="lofi" aria-pressed="false">Lo-Fi</button>
+        <button type="button" class="chip" data-category="rain" aria-pressed="false">Rain &amp; Nature</button>
+        <button type="button" class="chip" data-category="whitenoise" aria-pressed="false">White Noise</button>
+      </div>
+      <button id="addTrackButton" class="primary-button">Додати трек</button>
+      <p id="message" class="message"></p>
+    </section>
+    <section class="card">
+      <h2 class="card-title">Список треків</h2>
+      <input type="search" id="searchInput" class="text-input" placeholder="Пошук за назвою або виконавцем" aria-label="Пошук" />
+      <p id="hint" class="hint" hidden>Натисніть на трек, щоб позначити його завантаженим для офлайн-режиму.</p>
+      <ul id="tracksList" class="track-list"></ul>
+    </section>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
